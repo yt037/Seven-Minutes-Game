@@ -6,8 +6,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private bool hasKeycard;
     [SerializeField] private bool guardWarned;
+    [SerializeField] private bool robberyStarted;
+    [SerializeField] private bool vaultAttemptStarted;
+    [SerializeField] private bool policeResponseStarted;
+
     public bool HasKeycard => hasKeycard;
     public bool GuardWarned => guardWarned;
+    public bool RobberyStarted => robberyStarted;
+    public bool VaultAttemptStarted => vaultAttemptStarted;
+    public bool PoliceResponseStarted => policeResponseStarted;
 
     private void Awake()
     {
@@ -21,18 +28,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-// Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void CollectKeycard()
     {
         hasKeycard = true;
@@ -41,5 +36,20 @@ public class GameManager : MonoBehaviour
     public void WarnGuard()
     {
         guardWarned = true;
+    }
+
+    public void StartRobbery()
+    {
+        robberyStarted = true;
+    }
+
+    public void StartVaultAttempt()
+    {
+        vaultAttemptStarted = true;
+    }
+
+    public void StartPoliceResponse()
+    {
+        policeResponseStarted = true;
     }
 }

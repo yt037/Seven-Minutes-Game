@@ -1,43 +1,69 @@
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class NPCEvent
+{
+    public float time;
+    public Transform location;
+    public UnityEvent eventCall;
+}
 
 public class NPC : MonoBehaviour
 {
     public float moveSpeed = 2f;
 
-    public Transform[] locations;
-
-    public float[] times;
+    public NPCEvent[] events;
 
     [SerializeField] private Timer timer;
 
     private int currentIndex = 0;
+    private bool moving = false;
 
     void Update()
     {
-
-        if (currentIndex >= locations.Length)
-        {
+        if (currentIndex >= events.Length)
             return;
+
+        NPCEvent currentEvent = events[currentIndex];
+
+        if (!moving && timer.timer <= currentEvent.time)
+        {
+            StartEvent(currentEvent);
         }
 
-        if (timer.timer <= times[currentIndex])
+        if (moving)
         {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                locations[currentIndex].position,
-                moveSpeed * Time.deltaTime
-            );
-
-            // Once we've reached the location, move to the next index
-            if (transform.position == locations[currentIndex].position)
-            {
-                currentIndex++;
-            }
+            MoveToLocation(currentEvent);
         }
     }
 
-    //void TriggerEvent()
-    //{
-    //    Debug.Log("Robbery starts");
-    //}
+    void StartEvent(NPCEvent npcEvent)
+    {
+        npcEvent.eventCall?.Invoke();
+
+        if (npcEvent.location != null)
+        {
+            moving = true;
+        }
+        else
+        {
+            currentIndex++;
+        }
+    }
+
+    void MoveToLocation(NPCEvent npcEvent)
+    {
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            npcEvent.location.position,
+            moveSpeed * Time.deltaTime
+        );
+
+        if (transform.position == npcEvent.location.position)
+        {
+            moving = false;
+            currentIndex++;
+        }
+    }
 }
