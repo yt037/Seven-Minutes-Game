@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Card : MonoBehaviour
+public class Card : MonoBehaviour, Interaction
 {
-    public void Collect(Player player)
+    public void Interact(Player player)
     {
         GameManager.Instance.CollectKeycard();
         Destroy(gameObject);

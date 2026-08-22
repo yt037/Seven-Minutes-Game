@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    private Timer timer;
 
     [SerializeField] private bool hasKeycard;
     [SerializeField] private bool guardWarned;
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+<<<<<<< Updated upstream
 // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +34,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+=======
+    private void Start()
+    {
+        timer = gameObject.GetComponent<Timer>();
+>>>>>>> Stashed changes
     }
 
     public void CollectKeycard()
@@ -42,4 +50,37 @@ public class GameManager : MonoBehaviour
     {
         guardWarned = true;
     }
+<<<<<<< Updated upstream
+=======
+
+    public void StartRobbery()
+    {
+        robberyStarted = true;
+    }
+
+    public void StartVaultAttempt()
+    {
+        vaultAttemptStarted = true;
+    }
+
+    public void StartPoliceResponse()
+    {
+        policeResponseStarted = true;
+    }
+
+    public void EndLoop()
+    {
+        ResetLoopState();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void ResetLoopState()
+    {
+        hasKeycard = false;
+        guardWarned = false;
+        robberyStarted = false;
+        vaultAttemptStarted = false;
+        policeResponseStarted = false;
+    }
+>>>>>>> Stashed changes
 }

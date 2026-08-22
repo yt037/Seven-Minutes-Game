@@ -36,8 +36,50 @@ public class NPC : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
     //void TriggerEvent()
     //{
     //    Debug.Log("Robbery starts");
     //}
+=======
+    void StartEvent(NPCEvent npcEvent)
+    {
+        npcEvent.eventCall?.Invoke();
+
+        if (npcEvent.location != null)
+        {
+            moving = true;
+        }
+        else
+        {
+            currentIndex++;
+        }
+    }
+
+    void MoveToLocation(NPCEvent npcEvent)
+    {
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            npcEvent.location.position,
+            moveSpeed * Time.deltaTime
+        );
+
+        if (transform.position == npcEvent.location.position)
+        {
+            moving = false;
+            currentIndex++;
+        }
+    }
+    public void SetSchedule(NPCEvent[] newSchedule)
+    {
+        events = newSchedule;
+        currentIndex = 0;
+        moving = false;
+    }
+
+    public void StartRobberyCall()
+    {
+        GameManager.Instance.StartRobbery();
+    }
+>>>>>>> Stashed changes
 }

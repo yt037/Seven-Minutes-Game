@@ -31,7 +31,7 @@ public class Timer : MonoBehaviour
         float progress = 1f - (timer / loopDuration);
 
         // 120 game minutes = 2 game hours
-        float gameMinutes = progress * 420f;
+        float gameMinutes = progress * loopDuration;
 
         // Start at 10:00 AM
         int totalMinutes = (10 * 60) + Mathf.FloorToInt(gameMinutes);
@@ -53,7 +53,8 @@ public class Timer : MonoBehaviour
         if (timer <= 0 && !check)
         {
             check = true;
-            TimerEnded();
+
+            GameManager.Instance.EndLoop();
         }
 
         if (GameManager.Instance.HasKeycard)
