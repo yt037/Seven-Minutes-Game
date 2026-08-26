@@ -1,47 +1,43 @@
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class NPCEvent
+{
+    public float time;
+    public Transform location;
+    public UnityEvent eventCall;
+}
 
 public class NPC : MonoBehaviour
 {
     public float moveSpeed = 2f;
 
-    public Transform[] locations;
-
-    public float[] times;
+    public NPCEvent[] events;
 
     [SerializeField] private Timer timer;
 
     private int currentIndex = 0;
+    private bool moving = false;
 
     void Update()
     {
-
-        if (currentIndex >= locations.Length)
-        {
+        if (currentIndex >= events.Length)
             return;
+
+        NPCEvent currentEvent = events[currentIndex];
+
+        if (!moving && timer.timer <= currentEvent.time)
+        {
+            StartEvent(currentEvent);
         }
 
-        if (timer.timer <= times[currentIndex])
+        if (moving)
         {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                locations[currentIndex].position,
-                moveSpeed * Time.deltaTime
-            );
-
-            // Once we've reached the location, move to the next index
-            if (transform.position == locations[currentIndex].position)
-            {
-                currentIndex++;
-            }
+            MoveToLocation(currentEvent);
         }
     }
 
-<<<<<<< Updated upstream
-    //void TriggerEvent()
-    //{
-    //    Debug.Log("Robbery starts");
-    //}
-=======
     void StartEvent(NPCEvent npcEvent)
     {
         npcEvent.eventCall?.Invoke();
@@ -70,6 +66,7 @@ public class NPC : MonoBehaviour
             currentIndex++;
         }
     }
+    
     public void SetSchedule(NPCEvent[] newSchedule)
     {
         events = newSchedule;
@@ -81,5 +78,4 @@ public class NPC : MonoBehaviour
     {
         GameManager.Instance.StartRobbery();
     }
->>>>>>> Stashed changes
 }
