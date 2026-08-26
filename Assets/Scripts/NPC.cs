@@ -66,4 +66,16 @@ public class NPC : MonoBehaviour
             currentIndex++;
         }
     }
+    
+    public void SetSchedule(NPCEvent[] newSchedule)
+    {
+        events = newSchedule;
+        currentIndex = 0;
+        moving = false;
+    }
+
+    public void StartRobberyCall()
+    {
+        GameManager.Instance.StartRobbery();
+    }
 }

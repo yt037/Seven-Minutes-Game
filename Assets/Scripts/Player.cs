@@ -11,6 +11,26 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform playerCamera;
 
     [Header("Interaction")]
+    [SerializeField] private float interactDistance = 3f;
+
+    [Header("Physics")]
+    [SerializeField] private Rigidbody rb;
+
+    [SerializeField] private DialogueManager dialogue;
+
+    private float mouseX;
+    private float mouseY;
+    private PlayerControls controls;
+    private bool gameFocused = false;
+
+    [Header("Movement")]
+    [SerializeField] private float moveSpeed = 10f;
+
+    [Header("Mouse Look")]
+    [SerializeField] private float mouseSensitivity = 10f;
+    [SerializeField] private Transform playerCamera;
+
+    [Header("Interaction")]
     [SerializeField] private GameObject dialogue;
     [SerializeField] private float interactDistance = 3f;
 
@@ -188,9 +208,10 @@ public class Player : MonoBehaviour
         if (!gameFocused)
             return;
 
+
         if (dialogue != null && dialogue.activeSelf)
         {
-            dialogue.SetActive(false);
+            dialogue.CloseDialogue();
         }
 
         Camera cam = playerCamera.GetComponent<Camera>();
@@ -207,13 +228,9 @@ public class Player : MonoBehaviour
             out RaycastHit hit,
             interactDistance))
         {
-            if (hit.collider.TryGetComponent(out Card keycard))
+            if (hit.collider.TryGetComponent(out Interaction interactable))
             {
-                keycard.Collect(this);
-            }
-            else if (hit.collider.TryGetComponent(out Guard guard))
-            {
-                guard.Interact(this);
+                interactable.Interact(this);
 
                 if (dialogue != null)
                 {
