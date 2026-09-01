@@ -9,6 +9,15 @@ public class NPCEvent
     public UnityEvent eventCall;
 }
 
+public enum NPCType
+{
+    Customer,
+    Teller,
+    Guard,
+    Manager,
+    Robber
+}
+
 public class NPC : MonoBehaviour
 {
     public float moveSpeed = 2f;
@@ -16,6 +25,7 @@ public class NPC : MonoBehaviour
     public NPCEvent[] events;
 
     [SerializeField] private Timer timer;
+    [SerializeField] private NPCType npcType;
 
     private int currentIndex = 0;
     private bool moving = false;
@@ -23,11 +33,13 @@ public class NPC : MonoBehaviour
     void Update()
     {
         if (currentIndex >= events.Length)
+        {
             return;
+        }
 
         NPCEvent currentEvent = events[currentIndex];
 
-        if (!moving && timer.timer <= currentEvent.time)
+        if (!moving && timer.timer >= currentEvent.time)
         {
             StartEvent(currentEvent);
         }

@@ -12,8 +12,13 @@ public class Guard : MonoBehaviour, Interaction
 
     public void Interact(Player player)
     {
-        switch (importance) {
+        if (dialogue != null)
+        {
+            dialogue.OpenDialogue();
+        }
 
+        switch (importance) 
+        {
             case 1:
                 if (dialogue == null)
                 {
@@ -29,7 +34,6 @@ public class Guard : MonoBehaviour, Interaction
                     if (robber != null)
                     {
                         robber.StopRobber();
-                        Destroy(robber.gameObject);
                     }
 
                     GameManager.Instance.WarnGuard();
