@@ -1,77 +1,65 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float loopDuration = 420f;
-
+    [SerializeField] private float loopDuration = 420f;
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private GameObject image;
-    [SerializeField] private Player player;
-    [SerializeField] private bool check;
 
-    public float timer;
+    public float timer { get; private set; }
+    [SerializeField] private bool running = true;
+
+    private const int StartHour = 10;
+    private const int EndHour = 17;
 
     private void Start()
     {
-        timer = loopDuration;
-        check = false;
+        timer = 0f;
+        UpdateDisplay();
     }
 
     private void Update()
     {
-        if (timer > 0)
+        if (!running)
+            return;
+
+        timer += Time.deltaTime;
+
+        if (timer >= loopDuration)
         {
-            timer -= Time.deltaTime;
+            timer = loopDuration;
+            UpdateDisplay();
+
+            GameManager.Instance.EndLoop();
+            return;
         }
 
-        // 0 at the beginning, 1 at the end
-        float progress = 1f - (timer / loopDuration);
+        UpdateDisplay();
+    }
 
-        // 120 game minutes = 2 game hours
-        float gameMinutes = progress * loopDuration;
+    private void UpdateDisplay()
+    {
+        float timePercentage = timer / loopDuration;
 
-        // Start at 10:00 AM
-        int totalMinutes = (10 * 60) + Mathf.FloorToInt(gameMinutes);
+        float currentGameHour = Mathf.Lerp(StartHour, EndHour, timePercentage);
+
+        int totalMinutes = Mathf.FloorToInt(currentGameHour * 60f);
 
         int hours = totalMinutes / 60;
         int minutes = totalMinutes % 60;
 
         string period = hours >= 12 ? "PM" : "AM";
 
-        int displayHour = hours;
+        int displayHour = hours % 12;
 
-        if (displayHour > 12)
-        {
-            displayHour -= 12;
-        }
+        if (displayHour == 0)
+            displayHour = 12;
 
         text.text = $"{displayHour:00}:{minutes:00} {period}";
-
-        if (timer <= 0 && !check)
-        {
-            check = true;
-
-            GameManager.Instance.EndLoop();
-        }
-
-        if (GameManager.Instance.HasKeycard)
-        {
-            image.SetActive(true);
-        }
     }
 
-    private void TimerEnded()
+    public void StopTimer()
     {
-        if (GameManager.Instance.GuardWarned)
-        {
-            Debug.Log("Robbery Stopped");
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        running = false;
     }
 }

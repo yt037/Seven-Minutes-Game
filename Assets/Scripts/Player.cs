@@ -22,29 +22,7 @@ public class Player : MonoBehaviour
     private float mouseY;
     private PlayerControls controls;
     private bool gameFocused = false;
-
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed = 10f;
-
-    [Header("Mouse Look")]
-    [SerializeField] private float mouseSensitivity = 10f;
-    [SerializeField] private Transform playerCamera;
-
-    [Header("Interaction")]
-    [SerializeField] private GameObject dialogue;
-    [SerializeField] private float interactDistance = 3f;
-
-    [Header("Physics")]
-    [SerializeField] private Rigidbody rb;
-
     public bool dialogueOpen;
-
-    private float mouseX;
-    private float mouseY;
-
-    private PlayerControls controls;
-    private bool gameFocused = false;
-
     private Vector2 moveInput;
     private Vector2 lookInput;
 
@@ -53,23 +31,17 @@ public class Player : MonoBehaviour
     {
         controls = new PlayerControls();
 
-        controls.Player.Move.performed += ctx =>
-            moveInput = ctx.ReadValue<Vector2>();
+        controls.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
 
-        controls.Player.Move.canceled += ctx =>
-            moveInput = Vector2.zero;
+        controls.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
-        controls.Player.Look.performed += ctx =>
-            lookInput = ctx.ReadValue<Vector2>();
+        controls.Player.Look.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
 
-        controls.Player.Look.canceled += ctx =>
-            lookInput = Vector2.zero;
+        controls.Player.Look.canceled += ctx => lookInput = Vector2.zero;
 
-        controls.Player.ToggleCursor.performed += ctx =>
-            ToggleCursor();
+        controls.Player.ToggleCursor.performed += ctx => ToggleCursor();
 
-        controls.Player.Interact.performed += ctx =>
-            Interact();
+        controls.Player.Interact.performed += ctx => Interact();
     }
 
 
@@ -85,8 +57,7 @@ public class Player : MonoBehaviour
         }
 
         // Prevent physics from tipping the player over.
-        rb.constraints = RigidbodyConstraints.FreezeRotationX |
-                         RigidbodyConstraints.FreezeRotationZ;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
     }
 
 
@@ -115,7 +86,9 @@ public class Player : MonoBehaviour
         }
 
         if (!gameFocused)
+        {
             return;
+        }
 
         HandleMouseLook();
     }
@@ -141,11 +114,7 @@ public class Player : MonoBehaviour
     private void HandleMovement()
     {
         // Convert WASD input into a 3D direction.
-        Vector3 movement = new Vector3(
-            moveInput.x,
-            0f,
-            moveInput.y
-        );
+        Vector3 movement = new Vector3(moveInput.x, 0f, moveInput.y);
 
         // Prevent diagonal movement from being faster.
         movement = Vector3.ClampMagnitude(movement, 1f);
@@ -172,17 +141,9 @@ public class Player : MonoBehaviour
 
         mouseY = Mathf.Clamp(mouseY, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(
-            0f,
-            mouseX,
-            0f
-        );
+        transform.localRotation = Quaternion.Euler(0f, mouseX, 0f);
 
-        playerCamera.localRotation = Quaternion.Euler(
-            mouseY,
-            0f,
-            0f
-        );
+        playerCamera.localRotation = Quaternion.Euler(mouseY, 0f, 0f);
     }
 
 
@@ -209,7 +170,7 @@ public class Player : MonoBehaviour
             return;
 
 
-        if (dialogue != null && dialogue.activeSelf)
+        if (dialogue != null)
         {
             dialogue.CloseDialogue();
         }
@@ -223,21 +184,12 @@ public class Player : MonoBehaviour
             new Vector3(0.5f, 0.5f, 0f)
         );
 
-        if (Physics.Raycast(
-            ray,
-            out RaycastHit hit,
-            interactDistance))
+        if (Physics.Raycast(ray, out RaycastHit hit, interactDistance))
         {
             if (hit.collider.TryGetComponent(out Interaction interactable))
             {
                 interactable.Interact(this);
-
-                if (dialogue != null)
-                {
-                    dialogue.SetActive(true);
-                }
             }
         }
     }
 }
-

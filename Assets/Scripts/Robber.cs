@@ -11,4 +11,9 @@ public class Robber : MonoBehaviour
     {
         npc.SetSchedule(stoppedSchedule);
     }
+
+    public void Robbery()
+    {
+        GameManager.Instance.StartRobbery();
+    }
 }

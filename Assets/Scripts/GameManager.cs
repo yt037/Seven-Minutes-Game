@@ -60,22 +60,25 @@ public class GameManager : MonoBehaviour
         policeResponseStarted = true;
     }
 
-    public void StartRobbery()
-    {
-        robberyStarted = true;
-    }
-
-    public void StartVaultAttempt()
-    {
-        vaultAttemptStarted = true;
-    }
-
-    public void StartPoliceResponse()
-    {
-        policeResponseStarted = true;
-    }
-
     public void EndLoop()
+    {
+        ResetLoopState();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void EscapeEnding()
+    {
+        ResetLoopState();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GoodEnding()
+    {
+        ResetLoopState();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void EvilEnding()
     {
         ResetLoopState();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
