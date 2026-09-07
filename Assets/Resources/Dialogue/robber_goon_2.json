@@ -1,0 +1,45 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "in_corridor",
+      "node": "hub"
+    },
+    {
+      "flag": "heist_started",
+      "node": "lobby"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Harry",
+      "text": "Forward. Only forward.",
+      "choices": [
+        {
+          "text": "Why?",
+          "next": "why"
+        },
+        {
+          "text": "Fine.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "why",
+      "speaker": "Harry",
+      "text": "Boss said nobody goes back. So nobody goes back. Whoever's behind us stays behind us.",
+      "addClues": [
+        "clue_no_return"
+      ],
+      "next": ""
+    },
+    {
+      "id": "lobby",
+      "speaker": "Harry",
+      "text": "Eyes down.",
+      "next": ""
+    }
+  ]
+}

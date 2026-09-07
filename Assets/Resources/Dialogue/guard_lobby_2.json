@@ -1,0 +1,58 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "guards_stood_down",
+      "node": "down"
+    },
+    {
+      "flag": "heist_started",
+      "node": "tense"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Joe",
+      "text": "Alright?",
+      "choices": [
+        {
+          "text": "Nice boss?",
+          "next": "boss"
+        },
+        {
+          "text": "Long shift?",
+          "next": "shift"
+        },
+        {
+          "text": "Alright.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "boss",
+      "speaker": "Joe",
+      "text": "Best I've had. Gave me Friday afternoon off, and he's promised me ten minutes this morning. Mr Wilco remembers the little things.",
+      "next": ""
+    },
+    {
+      "id": "shift",
+      "speaker": "Joe",
+      "text": "Since seven. My feet stopped hurting at half eight. Now they're just rumours.",
+      "next": ""
+    },
+    {
+      "id": "tense",
+      "speaker": "Joe",
+      "text": "Get down. Get down. I mean it, get down.",
+      "next": ""
+    },
+    {
+      "id": "down",
+      "speaker": "Joe",
+      "text": "Should've taken the whole day.",
+      "next": ""
+    }
+  ]
+}

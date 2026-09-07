@@ -1,0 +1,58 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "customer_shot",
+      "node": "after"
+    },
+    {
+      "flag": "heist_started",
+      "node": "hostage"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Kevin",
+      "text": "Is this the queue for the queue?",
+      "choices": [
+        {
+          "text": "Yes.",
+          "next": "yes"
+        },
+        {
+          "text": "There's only one queue.",
+          "next": "one"
+        },
+        {
+          "text": "...",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "yes",
+      "speaker": "Kevin",
+      "text": "Cool. Cool cool cool. I'll wait for the real one then.",
+      "next": ""
+    },
+    {
+      "id": "one",
+      "speaker": "Kevin",
+      "text": "That's what they want you to think.",
+      "next": ""
+    },
+    {
+      "id": "hostage",
+      "speaker": "Kevin",
+      "text": "Are those real? Are they real? Is this real?",
+      "next": ""
+    },
+    {
+      "id": "after",
+      "speaker": "Kevin",
+      "text": "I'm going to be sick. I'm going to be sick.",
+      "next": ""
+    }
+  ]
+}

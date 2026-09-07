@@ -1,0 +1,61 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "guards_stood_down",
+      "node": "down"
+    },
+    {
+      "flag": "heist_started",
+      "node": "tense"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Bob",
+      "text": "Morning.",
+      "choices": [
+        {
+          "text": "Quiet day?",
+          "next": "quiet"
+        },
+        {
+          "text": "You look tired.",
+          "next": "tired"
+        },
+        {
+          "text": "Morning.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "quiet",
+      "speaker": "Bob",
+      "text": "Sidearms are in the locker. Manager's orders, some insurance thing, just for today. So it had better be quiet.",
+      "addClues": [
+        "clue_guards_unarmed"
+      ],
+      "next": ""
+    },
+    {
+      "id": "tired",
+      "speaker": "Bob",
+      "text": "Nine years on this floor. I don't look tired. This is my face.",
+      "next": ""
+    },
+    {
+      "id": "tense",
+      "speaker": "Bob",
+      "text": "Don't look at me. Look at the floor.",
+      "next": ""
+    },
+    {
+      "id": "down",
+      "speaker": "Bob",
+      "text": "Hands are up. That's the job today, apparently.",
+      "next": ""
+    }
+  ]
+}

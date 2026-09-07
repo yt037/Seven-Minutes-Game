@@ -1,0 +1,67 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "customer_shot",
+      "node": "count"
+    },
+    {
+      "flag": "heist_started",
+      "node": "hostage"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Margaret",
+      "text": "Three guards. For one branch.",
+      "choices": [
+        {
+          "text": "Is that a lot?",
+          "next": "guards"
+        },
+        {
+          "text": "Come here often?",
+          "next": "often"
+        },
+        {
+          "text": "Noted.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "guards",
+      "speaker": "Margaret",
+      "text": "Two on the floor and one back there with the screens. Someone is expecting trouble, or someone's mother runs the security firm.",
+      "addClues": [
+        "clue_three_guards"
+      ],
+      "next": ""
+    },
+    {
+      "id": "often",
+      "speaker": "Margaret",
+      "text": "Every Thursday for thirty years. This is the first Thursday with a queue and three guards.",
+      "next": ""
+    },
+    {
+      "id": "hostage",
+      "speaker": "Margaret",
+      "text": "Five. I counted. Five of them. Remember that, if you're the remembering kind.",
+      "addClues": [
+        "clue_five_inside"
+      ],
+      "next": ""
+    },
+    {
+      "id": "count",
+      "speaker": "Margaret",
+      "text": "Five came in. I counted twice. Whatever else is happening, it isn't five men alone.",
+      "addClues": [
+        "clue_five_inside"
+      ],
+      "next": ""
+    }
+  ]
+}

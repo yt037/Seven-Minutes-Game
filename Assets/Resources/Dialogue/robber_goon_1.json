@@ -1,0 +1,56 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "escort_ready",
+      "node": "count"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Barry",
+      "text": "Sit. Down.",
+      "choices": [
+        {
+          "text": "Who are you?",
+          "next": "who"
+        },
+        {
+          "text": "Okay.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "who",
+      "speaker": "Barry",
+      "text": "The guy at the door.",
+      "next": ""
+    },
+    {
+      "id": "count",
+      "speaker": "Barry",
+      "text": "Card. Door. I'm counting.",
+      "next": ""
+    },
+    {
+      "id": "shoot",
+      "speaker": "Barry",
+      "text": "Told you.",
+      "setFlags": [
+        "resolve_now"
+      ],
+      "next": ""
+    },
+    {
+      "id": "shoot_slow",
+      "speaker": "Barry",
+      "text": "Thirty. Boss said thirty.",
+      "setFlags": [
+        "resolve_now"
+      ],
+      "next": ""
+    }
+  ]
+}

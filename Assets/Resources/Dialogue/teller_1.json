@@ -1,0 +1,64 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "heist_started",
+      "node": "hostage"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Alice",
+      "text": "Be with you in a second. Just one second.",
+      "choices": [
+        {
+          "text": "No rush.",
+          "next": "norush"
+        },
+        {
+          "text": "Is the manager about?",
+          "next": "manager"
+        },        
+        {
+          "text": "I'll wait for ten.",
+          "next": "wait_for_ten"
+        },
+        {
+          "text": "I'll wait.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "norush",
+      "speaker": "Alice",
+      "text": "Thank you. Honestly. The outside line's been dead since I opened up, I can't even reach head office, and Mr Wilco says the engineer's coming. He said that at eight.",
+      "addClues": [
+        "clue_line_down"
+      ],
+      "next": ""
+    },
+    {
+      "id": "manager",
+      "speaker": "Alice",
+      "text": "He's about. He's very about today.",
+      "next": ""
+    },
+    {
+      "id": "hostage",
+      "speaker": "Alice",
+      "text": "Just. Just do what they say.",
+      "next": ""
+    },
+    {
+      "id": "wait_for_ten",
+      "speaker": "Alice",
+      "text": "Ten. Right. It's always ten with this place.",
+      "setFlags": [
+        "skip_ahead"
+      ],
+      "next": ""
+    }
+  ]
+}

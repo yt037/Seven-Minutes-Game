@@ -1,0 +1,51 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "heist_started",
+      "node": "hostage"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Linda",
+      "text": "I've been in this queue so long my cheque's gone off.",
+      "choices": [
+        {
+          "text": "What are you here for?",
+          "next": "cheque"
+        },
+        {
+          "text": "Bad morning?",
+          "next": "late"
+        },
+        {
+          "text": "Good luck.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "cheque",
+      "speaker": "Linda",
+      "text": "Paying in, then work. I tried ringing them from the counter phone. Alice says the line's been dead since she opened up. Dead. In a bank.",
+      "addClues": [
+        "clue_line_down"
+      ],
+      "next": ""
+    },
+    {
+      "id": "late",
+      "speaker": "Linda",
+      "text": "I have two kids and one alarm clock, and this morning the clock won.",
+      "next": ""
+    },
+    {
+      "id": "hostage",
+      "speaker": "Linda",
+      "text": "Don't. Don't talk to me.",
+      "next": ""
+    }
+  ]
+}

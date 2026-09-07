@@ -1,0 +1,107 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "manager_gone",
+      "node": "after"
+    },
+    {
+      "flag": "player_joined",
+      "node": "crew"
+    },
+    {
+      "flag": "in_corridor",
+      "node": "hub"
+    },
+    {
+      "flag": "heist_started",
+      "node": "lobby"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Larry",
+      "text": "Door stays shut till the man comes through.",
+      "choices": [
+        {
+          "text": "What man?",
+          "next": "man",
+          "suspicion": 1
+        },
+        {
+          "text": "The manager?",
+          "next": "manager",
+          "minSuspicion": 1
+        },
+        {
+          "text": "Right.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "man",
+      "speaker": "Larry",
+      "text": "Not your business.",
+      "next": "hub"
+    },
+    {
+      "id": "manager",
+      "speaker": "Larry",
+      "text": "...Sit back down.",
+      "addClues": [
+        "clue_side_exit_expected"
+      ],
+      "next": ""
+    },
+    {
+      "id": "crew",
+      "speaker": "Larry",
+      "text": "You're crew now, apparently. Door's still shut till Boss says.",
+      "choices": [
+        {
+          "text": "What's the door for?",
+          "next": "man",
+          "suspicion": 1
+        },
+        {
+          "text": "The manager?",
+          "next": "manager",
+          "minSuspicion": 1
+        },
+        {
+          "text": "Fine.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "after",
+      "speaker": "Larry",
+      "text": "Nobody came through here.",
+      "choices": [
+        {
+          "text": "I didn't ask.",
+          "next": ""
+        },
+        {
+          "text": "Where's the manager?",
+          "next": "after_2"
+        }
+      ]
+    },
+    {
+      "id": "after_2",
+      "speaker": "Larry",
+      "text": "Nobody. Sit.",
+      "next": ""
+    },
+    {
+      "id": "lobby",
+      "speaker": "Larry",
+      "text": "Down.",
+      "next": ""
+    }
+  ]
+}

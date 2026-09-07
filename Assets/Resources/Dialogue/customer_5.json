@@ -1,0 +1,58 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "customer_shot",
+      "node": "after"
+    },
+    {
+      "flag": "heist_started",
+      "node": "hostage"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Jess",
+      "text": "No signal. Zero bars. Is this a bank or a bunker.",
+      "choices": [
+        {
+          "text": "Try by the window.",
+          "next": "window"
+        },
+        {
+          "text": "Who are you texting?",
+          "next": "mum"
+        },
+        {
+          "text": "Tough.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "window",
+      "speaker": "Jess",
+      "text": "Tried it. Tried the door. Tried holding it up like a lighter at a concert. Nothing.",
+      "next": ""
+    },
+    {
+      "id": "mum",
+      "speaker": "Jess",
+      "text": "My mum. I've missed the bus twice and she thinks I'm at school. Technically I'm at a bank, which is basically maths.",
+      "next": ""
+    },
+    {
+      "id": "hostage",
+      "speaker": "Jess",
+      "text": "They took my phone. My phone. Not my purse. My phone.",
+      "next": ""
+    },
+    {
+      "id": "after",
+      "speaker": "Jess",
+      "text": "...",
+      "next": ""
+    }
+  ]
+}
