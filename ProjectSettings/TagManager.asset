@@ -3,21 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-  - Manager
-  - Guard Captain
-  - Guard
-  - Employee
-  - Robber
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player&NPC
+  - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - NPC
   - 
   - 
   - 

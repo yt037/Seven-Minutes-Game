@@ -1,0 +1,64 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "heist_started",
+      "node": "hostage"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Lara",
+      "text": "You didn't hear this from me.",
+      "choices": [
+        {
+          "text": "Hear what?",
+          "next": "audit"
+        },
+        {
+          "text": "I didn't hear anything.",
+          "next": "fine"
+        },
+        {
+          "text": "I'll wait for ten.",
+          "next": "wait_for_ten"
+        },
+        {
+          "text": "Bye.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "audit",
+      "speaker": "Lara",
+      "text": "Audit's Monday. Mr Wilco's been in at six every day this week. Six. The man doesn't do six.",
+      "addClues": [
+        "clue_audit_monday"
+      ],
+      "next": ""
+    },
+    {
+      "id": "fine",
+      "speaker": "Lara",
+      "text": "Good. Then we've both got nothing to worry about.",
+      "next": ""
+    },
+    {
+      "id": "hostage",
+      "speaker": "Lara",
+      "text": "Head down. Head down. Please.",
+      "next": ""
+    },
+    {
+      "id": "wait_for_ten",
+      "speaker": "Lara",
+      "text": "Ten. Right. It's always ten with this place.",
+      "setFlags": [
+        "skip_ahead"
+      ],
+      "next": ""
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "startNode": "lobby",
+  "startRules": [
+    {
+      "flag": "alarm_triggered",
+      "node": "after_alarm"
+    },
+    {
+      "flag": "in_security",
+      "node": "terminal"
+    },
+    {
+      "flag": "in_corridor",
+      "node": "escort"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "lobby",
+      "speaker": "Tarry",
+      "text": "Bag. Phones. In.",
+      "next": ""
+    },
+    {
+      "id": "escort",
+      "speaker": "Tarry",
+      "text": "Keep moving.",
+      "next": ""
+    },
+    {
+      "id": "terminal",
+      "speaker": "Tarry",
+      "text": "Talk if you want. I've got four boxes to kill and Boss counting.",
+      "choices": [
+        {
+          "text": "How long have you done this?",
+          "next": "long",
+          "suspicion": 1
+        },
+        {
+          "text": "Who set this up?",
+          "next": "setup",
+          "suspicion": 1
+        },
+        {
+          "text": "Why's that alarm light still on?",
+          "next": "alarm",
+          "minSuspicion": 1
+        },
+        {
+          "text": "Never mind.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "long",
+      "speaker": "Tarry",
+      "text": "Long enough to know a bad one. This one's bad. Too easy. Nobody's easy.",
+      "next": "terminal_more"
+    },
+    {
+      "id": "setup",
+      "speaker": "Tarry",
+      "text": "Someone inside. Boss's phone friend. Months of it. Times, doors, which guard drinks.",
+      "addClues": [
+        "clue_inside_man"
+      ],
+      "next": "terminal_more"
+    },
+    {
+      "id": "alarm",
+      "speaker": "Tarry",
+      "text": "Because the phone friend only cut the outside line. Said the alarm logs if you touch it. So I do the vault boxes first, then that. Then it's dead.",
+      "addClues": [
+        "clue_alarm_live"
+      ],
+      "next": "terminal_more"
+    },
+    {
+      "id": "terminal_more",
+      "speaker": "Tarry",
+      "text": "What.",
+      "choices": [
+        {
+          "text": "Who set this up?",
+          "next": "setup",
+          "suspicion": 1
+        },
+        {
+          "text": "Why's that alarm light still on?",
+          "next": "alarm",
+          "minSuspicion": 1
+        },
+        {
+          "text": "Does your boss know who he is?",
+          "next": "boss",
+          "minSuspicion": 2
+        },
+        {
+          "text": "Never mind.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "boss",
+      "speaker": "Tarry",
+      "text": "Boss don't know him. Nobody knows him. That's the point of him.",
+      "addClues": [
+        "clue_leader_takes_orders"
+      ],
+      "next": "terminal_more"
+    },
+    {
+      "id": "after_alarm",
+      "speaker": "Tarry",
+      "text": "I said don't try anything funny. Corner. Hands where I can see them.",
+      "next": ""
+    }
+  ]
+}

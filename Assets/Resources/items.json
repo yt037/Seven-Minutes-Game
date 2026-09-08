@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": "has_staff_card",
+      "title": "Staff keycard",
+      "body": "Off the counter while nobody was counting. Opens the door behind the tellers. Somebody will notice it gone, but not this morning."
+    },
+    {
+      "id": "has_office_key",
+      "title": "Office key",
+      "body": "Under the carpet, exactly where the note said it would be. A manager who hides his own key is a manager who expects to be searched."
+    },
+    {
+      "id": "has_exit_card",
+      "title": "Exit keycard",
+      "body": "Opens the side door. It was left where you would find it, which is worth thinking about once you are out on the walkway."
+    },
+    {
+      "id": "has_taser",
+      "title": "Taser",
+      "body": "Security locker, standard issue, one cartridge. Enough for one man at close range. There are five of them."
+    },
+    {
+      "id": "has_moneybag",
+      "title": "Moneybag",
+      "body": "Heavier than it looks. Carrying it out of the door makes you one of them in every way a court cares about."
+    },
+    {
+      "id": "has_evidence",
+      "title": "Notebook",
+      "body": "Names, dates, a six way split with one name circled. Wilco writes everything down. It is the only careless thing about him."
+    }
+  ]
+}

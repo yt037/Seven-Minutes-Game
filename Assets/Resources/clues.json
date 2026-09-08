@@ -1,0 +1,154 @@
+{
+  "clues": [
+    {
+      "id": "clue_manager_clock",
+      "title": "Nearly ten",
+      "body": "Wilco, 09:59, eyes on the wall clock: 'nearly ten, good.' Good for whom? The bank opened at nine.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_guard_break",
+      "title": "Take ten, Joe",
+      "body": "A guard sent on break at one minute to ten. The manager took the door himself. A manager who wants the door.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_line_down",
+      "title": "Dead line",
+      "body": "The counter phone has been dead since Alice opened up. Nobody has rung an engineer.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_manager_door",
+      "title": "Checking the weather",
+      "body": "Bernard counted Wilco to the front door three times before ten. It isn't raining.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_three_guards",
+      "title": "Three for one",
+      "body": "Three guards for a branch this size. Margaret thinks someone is expecting trouble. Or expecting to look like they did.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_audit_monday",
+      "title": "Monday",
+      "body": "Audit Monday. Wilco has been in at six every day this week. What takes a week to tidy?",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_guards_unarmed",
+      "title": "Locker",
+      "body": "Sidearms locked away today on the manager's say so. Insurance, apparently. Just for today.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_card_on_desk",
+      "title": "The card",
+      "body": "The staff keycard went on the counter the second they asked for it. They knew there would be one.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_manager_stood_down",
+      "title": "Stand down",
+      "body": "Wilco ordered all three guards to stand down before anyone told him to. Three names, no hesitation.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_five_inside",
+      "title": "Five",
+      "body": "Five came in. Margaret counted. Five inside. Anyone else is outside, or was already here.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_friend_inside",
+      "title": "Our friend",
+      "body": "Vander: 'our friend says the back's clear.' A friend who knows the back of this bank.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_alarm_button",
+      "title": "Nine years",
+      "body": "Tom: a red button in security, straight to the station, nobody's pressed it in nine years. Still wired?",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_no_return",
+      "title": "One way",
+      "body": "Harry's orders: nobody goes back through the staff door. Whoever is behind us is meant to stay behind.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_side_exit_expected",
+      "title": "The man",
+      "body": "Larry holds the side door 'till the man comes through'. Not the boss. A man.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_manager_missing",
+      "title": "Gone",
+      "body": "Wilco was in the corridor with us. Then he wasn't. Larry says nobody came through. Vander says 'hmph'.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_inside_man",
+      "title": "Phone friend",
+      "body": "Tarry: the job was set up over months by someone inside. Vander only knows him as a voice on a phone.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_alarm_live",
+      "title": "Still live",
+      "body": "The inside man cut the outside line but would not touch the alarm, it logs. So the red button still works. For now.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_leader_takes_orders",
+      "title": "Never met",
+      "body": "Vander has never met the man who planned this. He follows a phone. That is not a mastermind.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_key_under_carpet",
+      "title": "Note to self",
+      "body": "A guard's note in security: remind Mr Wilco to STOP leaving his office key under the carpet outside his door. Found it again.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_notebook",
+      "title": "Five plus one",
+      "body": "Wilco's notebook. Names, dates, a split. Five ways plus one, and the one is circled.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_follow_plot",
+      "title": "Follow it",
+      "body": "Dying early teaches nothing. Do what they say. See where they take you.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_someone_outside",
+      "title": "They knew",
+      "body": "Someone outside was waiting for that side door to open. Waiting, not surprised.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_unknown_shooter",
+      "title": "From behind",
+      "body": "Shot on the walkway. I never saw who. Someone who knew I was coming.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_leader_not_mastermind",
+      "title": "Not the boss",
+      "body": "Vander expected the taser. Someone told him what I'd do. He is not the one making the calls. Get to know him.",
+      "supersedes": ""
+    },
+    {
+      "id": "clue_manager_mastermind",
+      "title": "The sixth",
+      "body": "Mr Wilco. He was waiting outside. He gave the orders. He is the sixth, and he is the man who shoots people on walkways.",
+      "supersedes": "clue_unknown_shooter"
+    }
+  ]
+}

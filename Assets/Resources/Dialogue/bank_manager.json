@@ -1,0 +1,99 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "in_corridor",
+      "node": "corridor"
+    },
+    {
+      "flag": "heist_started",
+      "node": "hostage"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Mr Wilco",
+      "text": "Morning. Bit of a wait, I'm afraid.",
+      "choices": [
+        {
+          "text": "Busy morning?",
+          "next": "busy"
+        },
+        {
+          "text": "Lot of guards.",
+          "next": "guards"
+        },
+        {
+          "text": "You seem tense.",
+          "next": "tense",
+          "suspicion": 1
+        },
+        {
+          "text": "No problem.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "busy",
+      "speaker": "Mr Wilco",
+      "text": "Always, before an audit. You learn to smile through it.",
+      "next": ""
+    },
+    {
+      "id": "guards",
+      "speaker": "Mr Wilco",
+      "text": "Insurance. Don't ask. I didn't, and I still got the invoice.",
+      "next": ""
+    },
+    {
+      "id": "tense",
+      "speaker": "Mr Wilco",
+      "text": "Do I? I'm told I have that face. Enjoy your morning.",
+      "next": ""
+    },
+    {
+      "id": "hostage",
+      "speaker": "Mr Wilco",
+      "text": "Stay calm. They'll take what they want and go. They always do.",
+      "next": ""
+    },
+    {
+      "id": "corridor",
+      "speaker": "Mr Wilco",
+      "text": "Keep your head down. It'll be over soon.",
+      "next": ""
+    },
+    {
+      "id": "outside_criminal",
+      "speaker": "Mr Wilco",
+      "text": "Vander. Take that to the usual place. Don't count it in the car.",
+      "next": "outside_criminal_2"
+    },
+    {
+      "id": "outside_criminal_2",
+      "speaker": "Mr Wilco",
+      "text": "And you. Go on ahead. Straight down the alley, don't look back, don't run.",
+      "next": "outside_criminal_3"
+    },
+    {
+      "id": "outside_criminal_3",
+      "speaker": "Mr Wilco",
+      "text": "Good lad.",
+      "setFlags": [
+        "resolve_now"
+      ],
+      "next": ""
+    },
+    {
+      "id": "shot_unseen",
+      "speaker": "???",
+      "text": "Eleven months. Eleven months of planning, and you were going to be the reason.",
+      "setFlags": [
+        "resolve_now"
+      ],
+      "next": ""
+    }
+  ]
+}

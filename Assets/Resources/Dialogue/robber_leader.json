@@ -1,0 +1,343 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "vault_open",
+      "node": "wait_vault"
+    },
+    {
+      "flag": "sent_to_security",
+      "node": "wait_sec"
+    },
+    {
+      "flag": "leader_at_vault",
+      "node": "wait_front"
+    },
+    {
+      "flag": "escort_ready",
+      "node": "go_card"
+    },
+    {
+      "flag": "heist_started",
+      "node": "hub"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Vander",
+      "text": "Down. Now.",
+      "next": ""
+    },
+    {
+      "id": "go_card",
+      "speaker": "Vander",
+      "text": "Card. Door. I'm not asking twice.",
+      "next": ""
+    },
+    {
+      "id": "wait_front",
+      "speaker": "Vander",
+      "text": "Wait for Tarry.",
+      "next": ""
+    },
+    {
+      "id": "wait_sec",
+      "speaker": "Vander",
+      "text": "Security. Go.",
+      "next": ""
+    },
+    {
+      "id": "wait_vault",
+      "speaker": "Vander",
+      "text": "Tarry's done. Get in.",
+      "next": ""
+    },
+    {
+      "id": "call",
+      "speaker": "Vander",
+      "text": "You. The one who keeps looking at the door. Up here.",
+      "choices": [
+        {
+          "text": "No.",
+          "next": "refuse"
+        },
+        {
+          "text": "Okay. Okay.",
+          "next": "comply"
+        },
+        {
+          "text": "Let me in on it.",
+          "next": "join"
+        }
+      ]
+    },
+    {
+      "id": "refuse",
+      "speaker": "Vander",
+      "text": "Then you're no use to me.",
+      "setFlags": [
+        "fatal_dialogue",
+        "resolve_now"
+      ],
+      "next": ""
+    },
+    {
+      "id": "comply",
+      "speaker": "Vander",
+      "text": "Card's on the counter. Pick it up, open that door. We all go through, you first. Tarry, stay on him.",
+      "setFlags": [
+        "escort_ready"
+      ],
+      "next": ""
+    },
+    {
+      "id": "join",
+      "speaker": "Vander",
+      "text": "...You're serious.",
+      "choices": [
+        {
+          "text": "Dead serious.",
+          "next": "join_ok"
+        },
+        {
+          "text": "Kidding.",
+          "next": "comply"
+        }
+      ]
+    },
+    {
+      "id": "join_ok",
+      "speaker": "Vander",
+      "text": "Fine. You carry, you open doors, you get a cut. Card's on the counter. Tarry, stay on him.",
+      "setFlags": [
+        "player_joined",
+        "escort_ready"
+      ],
+      "next": ""
+    },
+    {
+      "id": "vault_front",
+      "speaker": "Vander",
+      "text": "Security's through there. Tarry, take him. Kill the box. You: stand where he can see you.",
+      "next": "vault_front_go"
+    },
+    {
+      "id": "vault_front_go",
+      "speaker": "Vander",
+      "text": "Go.",
+      "setFlags": [
+        "sent_to_security"
+      ],
+      "next": ""
+    },
+    {
+      "id": "vault",
+      "speaker": "Vander",
+      "text": "Good. Tarry says you kept your hands to yourself.",
+      "choices": [
+        {
+          "text": "Step back.",
+          "next": "vault_taser_fail",
+          "requiredFlags": [
+            "has_taser"
+          ]
+        },
+        {
+          "text": "What's my cut?",
+          "next": "vault_join",
+          "requiredFlags": [
+            "player_joined"
+          ]
+        },
+        {
+          "text": "What happens to me?",
+          "next": "vault_sit",
+          "blockedFlags": [
+            "player_joined"
+          ]
+        },
+        {
+          "text": "Where did Wilco go?",
+          "next": "hmph",
+          "requiredFlags": [
+            "manager_gone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hmph",
+      "speaker": "Vander",
+      "text": "Hmph.",
+      "addClues": [
+        "clue_manager_missing"
+      ],
+      "next": "vault_more"
+    },
+    {
+      "id": "vault_more",
+      "speaker": "Vander",
+      "text": "Well?",
+      "choices": [
+        {
+          "text": "Step back.",
+          "next": "vault_taser_fail",
+          "requiredFlags": [
+            "has_taser"
+          ]
+        },
+        {
+          "text": "What's my cut?",
+          "next": "vault_join",
+          "requiredFlags": [
+            "player_joined"
+          ]
+        },
+        {
+          "text": "What happens to me?",
+          "next": "vault_sit",
+          "blockedFlags": [
+            "player_joined"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vault_taser_fail",
+      "speaker": "Vander",
+      "text": "...You should've called someone first.",
+      "setFlags": [
+        "taser_used",
+        "resolve_now"
+      ],
+      "next": ""
+    },
+    {
+      "id": "vault_join",
+      "speaker": "Vander",
+      "text": "Bag's by the wall. Side door. Walk out like you own it.",
+      "setFlags": [
+        "bag_offered"
+      ],
+      "next": ""
+    },
+    {
+      "id": "vault_sit",
+      "speaker": "Vander",
+      "text": "Sit down. Face the wall. You never saw us.",
+      "setFlags": [
+        "crew_leaving"
+      ],
+      "next": ""
+    },
+    {
+      "id": "vault_alarm",
+      "speaker": "Vander",
+      "text": "Tarry heard a click. What did you press?",
+      "choices": [
+        {
+          "text": "This.",
+          "next": "vault_taser_hero",
+          "requiredFlags": [
+            "has_taser"
+          ]
+        },
+        {
+          "text": "Nothing. Let's go.",
+          "next": "vault_join_sirens",
+          "requiredFlags": [
+            "player_joined"
+          ]
+        },
+        {
+          "text": "I don't know what you mean.",
+          "next": "vault_sit_sirens"
+        },
+        {
+          "text": "Where did Wilco go?",
+          "next": "hmph_alarm",
+          "requiredFlags": [
+            "manager_gone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hmph_alarm",
+      "speaker": "Vander",
+      "text": "Hmph.",
+      "addClues": [
+        "clue_manager_missing"
+      ],
+      "next": "vault_alarm_more"
+    },
+    {
+      "id": "vault_alarm_more",
+      "speaker": "Vander",
+      "text": "I asked what you pressed.",
+      "choices": [
+        {
+          "text": "This.",
+          "next": "vault_taser_hero",
+          "requiredFlags": [
+            "has_taser"
+          ]
+        },
+        {
+          "text": "Nothing. Let's go.",
+          "next": "vault_join_sirens",
+          "requiredFlags": [
+            "player_joined"
+          ]
+        },
+        {
+          "text": "I don't know what you mean.",
+          "next": "vault_sit_sirens"
+        }
+      ]
+    },
+    {
+      "id": "vault_taser_hero",
+      "speaker": "Vander",
+      "text": "Called it.",
+      "setFlags": [
+        "taser_used"
+      ],
+      "next": "vault_taser_hero_2"
+    },
+    {
+      "id": "vault_taser_hero_2",
+      "speaker": "Vander",
+      "text": "He has the taser out of your hand before it clears your pocket. Then he has you on the floor, and he takes his time about it.",
+      "next": "vault_taser_hero_3"
+    },
+    {
+      "id": "vault_taser_hero_3",
+      "speaker": "Vander",
+      "text": "Sirens. Well. Somebody wanted to be a hero.",
+      "setFlags": [
+        "resolve_now"
+      ],
+      "next": ""
+    },
+    {
+      "id": "vault_join_sirens",
+      "speaker": "Vander",
+      "text": "Then we go now. Bag. Side door. Don't run till you're outside.",
+      "setFlags": [
+        "bag_offered"
+      ],
+      "next": ""
+    },
+    {
+      "id": "vault_sit_sirens",
+      "speaker": "Vander",
+      "text": "Doesn't matter now. Sit.",
+      "setFlags": [
+        "crew_leaving"
+      ],
+      "next": ""
+    }
+  ]
+}

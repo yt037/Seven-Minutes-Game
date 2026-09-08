@@ -1,0 +1,39 @@
+{
+  "startNode": "hub",
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Tom",
+      "text": "...You shouldn't be talking to me.",
+      "choices": [
+        {
+          "text": "What's back there?",
+          "next": "alarm"
+        },
+        {
+          "text": "Are you alright?",
+          "next": "ok"
+        },
+        {
+          "text": "Sorry.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "alarm",
+      "speaker": "Tom",
+      "text": "Security. Screens, a desk, and a red button that goes straight to the station. Nine years, nobody's pressed it. I'd remember.",
+      "addClues": [
+        "clue_alarm_button"
+      ],
+      "next": ""
+    },
+    {
+      "id": "ok",
+      "speaker": "Tom",
+      "text": "No.",
+      "next": ""
+    }
+  ]
+}

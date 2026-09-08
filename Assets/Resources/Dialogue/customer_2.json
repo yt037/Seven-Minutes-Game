@@ -1,0 +1,61 @@
+{
+  "startNode": "hub",
+  "startRules": [
+    {
+      "flag": "customer_shot",
+      "node": "after"
+    },
+    {
+      "flag": "heist_started",
+      "node": "hostage"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "hub",
+      "speaker": "Bernard",
+      "text": "That manager's wearing a groove in the floor.",
+      "choices": [
+        {
+          "text": "What do you mean?",
+          "next": "door"
+        },
+        {
+          "text": "Long wait?",
+          "next": "wait"
+        },
+        {
+          "text": "Right.",
+          "next": ""
+        }
+      ]
+    },
+    {
+      "id": "door",
+      "speaker": "Bernard",
+      "text": "Three times to the front door since I sat down. Checking the weather, I suppose. It isn't raining.",
+      "addClues": [
+        "clue_manager_door"
+      ],
+      "next": ""
+    },
+    {
+      "id": "wait",
+      "speaker": "Bernard",
+      "text": "Forty minutes. They've got a machine for tea. I've seen it. Nobody's offered.",
+      "next": ""
+    },
+    {
+      "id": "hostage",
+      "speaker": "Bernard",
+      "text": "Do what they say. Don't be brave. Brave is for films.",
+      "next": ""
+    },
+    {
+      "id": "after",
+      "speaker": "Bernard",
+      "text": "Keep your head down, son. Nothing to see. Nothing to see.",
+      "next": ""
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "startNode": "dead_end",
+  "nodes": [
+    {
+      "id": "tellers_later",
+      "speaker": "You",
+      "text": "Ten to. The queue's not going anywhere. Maybe talk to the people in it first.",
+      "next": ""
+    },
+    {
+      "id": "carpet_key",
+      "speaker": "You",
+      "text": "A key. Someone keeps a key under the carpet.",
+      "next": ""
+    },
+    {
+      "id": "note_security",
+      "speaker": "Note",
+      "text": "R. Please tell Mr Wilco to STOP leaving his office key under the carpet outside his door. Found it AGAIN. T.",
+      "next": ""
+    },
+    {
+      "id": "notebook",
+      "speaker": "You",
+      "text": "A notebook. Names, dates, a split. Five ways plus one, and the one is circled.",
+      "next": ""
+    },
+    {
+      "id": "alarm",
+      "speaker": "You",
+      "text": "I alerted the cops.",
+      "next": ""
+    },
+    {
+      "id": "dead_end",
+      "speaker": "You",
+      "text": "Nothing back here. Just wall.",
+      "next": ""
+    },
+    {
+      "id": "moneybag",
+      "speaker": "You",
+      "text": "Heavier than it looks.",
+      "next": ""
+    }
+  ]
+}
