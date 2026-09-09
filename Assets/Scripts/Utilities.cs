@@ -3,24 +3,19 @@ using UnityEngine;
 public class Utilities : MonoBehaviour
 {
     [SerializeField] private GameObject image;
+    [SerializeField] private string flag = GameIds.HasExitCard;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Update()
     {
-        
-    }
+        if (image == null) return;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (GameManager.Instance.HasKeycard)
-        {
-            image.SetActive(true);
-        }
+        GameManager gm = GameManager.Instance;
+        bool held = gm != null && gm.HasFlag(flag);
+        if (image.activeSelf != held) image.SetActive(held);
     }
 
     public void Escape()
     {
-        GameManager.Instance.EscapeEnding();
+        if (GameManager.Instance != null) GameManager.Instance.SteppedOutside();
     }
 }

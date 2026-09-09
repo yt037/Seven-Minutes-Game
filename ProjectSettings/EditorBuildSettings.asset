@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: f51ef9f8d6092504a8b9fe8bc91a26c2
   - enabled: 1
     path: Assets/Scenes/Bank.unity
-    guid: 8017eeface4957242b765c4a6fdf4e92
+    guid: b74dda14e8ed19a4fb894b2b96d04115
   - enabled: 1
     path: Assets/Scenes/Ending_Failure.unity
     guid: c0c5e018401bfad4f8c67dd948aa8556
