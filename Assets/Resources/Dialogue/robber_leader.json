@@ -319,6 +319,7 @@
       "setFlags": [
         "resolve_now"
       ],
+      "sound":"sirens",
       "next": ""
     },
     {
@@ -328,7 +329,6 @@
       "setFlags": [
         "bag_offered"
       ],
-      "sound":"sirens",
       "next": ""
     },
     {
