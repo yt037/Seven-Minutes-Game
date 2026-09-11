@@ -93,16 +93,28 @@ public class AutoDoor : MonoBehaviour, Interaction
 
     private static bool IsPlayerCollider(Collider c) => c != null && c.GetComponentInParent<Player>() != null;
 
-    private void Open()
-    {
-        isOpen = true;
-        emptySince = Time.time;
-        if (animator != null) animator.SetTrigger(openTriggerName);
-    }
+private void Open()
+{
+    isOpen = true;
+    emptySince = Time.time;
 
-    private void Close()
-    {
-        isOpen = false;
-        if (animator != null) animator.SetTrigger(closeTriggerName);
-    }
+    if (animator != null)
+        animator.SetTrigger(openTriggerName);
+
+    if (AudioManager.Instance != null)
+        AudioManager.Instance.Play(GameIds.SfxDoor);
+}
+
+private void Close()
+{
+    isOpen = false;
+
+    if (animator != null)
+        animator.SetTrigger(closeTriggerName);
+
+    if (AudioManager.Instance != null)
+        AudioManager.Instance.Play(GameIds.SfxDoorClose);
+}
+
+
 }

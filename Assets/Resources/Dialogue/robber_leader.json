@@ -328,6 +328,7 @@
       "setFlags": [
         "bag_offered"
       ],
+      "sound":"sirens",
       "next": ""
     },
     {

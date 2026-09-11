@@ -57,7 +57,7 @@ public class KeycardReader : MonoBehaviour, Interaction
         Used = true;
         if (door != null) door.Unlock();
         if (guard != null && guard.Blocking && !string.IsNullOrEmpty(guardPassLine)) guard.Say(guardPassLine);
-        if (AudioManager.Instance != null) AudioManager.Instance.Play(GameIds.SfxDoor);
+        if (AudioManager.Instance != null) AudioManager.Instance.Play(GameIds.SfxDoor);AudioManager.Instance.Play(GameIds.SfxCardReader);
         onUnlocked?.Invoke();
     }
 }

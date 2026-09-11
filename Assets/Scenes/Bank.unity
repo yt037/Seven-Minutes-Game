@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 23242032}
   - component: {fileID: 23242031}
   - component: {fileID: 23242030}
+  - component: {fileID: 23242038}
   m_Layer: 7
   m_Name: Harry
   m_TagString: Untagged
@@ -559,6 +560,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &23242038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23242028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 2
+  normalVoices: []
+  robberVoice: {fileID: 8300000, guid: 4c4a879c878ce2c43adb8f4ac9b76791, type: 3}
 --- !u!1 &24838660
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,6 +910,7 @@ GameObject:
   - component: {fileID: 49541183}
   - component: {fileID: 49541182}
   - component: {fileID: 49541181}
+  - component: {fileID: 49541189}
   m_Layer: 7
   m_Name: Joe
   m_TagString: Untagged
@@ -1133,6 +1150,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &49541189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49541179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 0
+  normalVoices:
+  - {fileID: 8300000, guid: 09c2b3d7e1160fa4c94fd1f3f27ce00d, type: 3}
+  - {fileID: 8300000, guid: 8ef92d90477b14c4f9667a97fce26f39, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &53995503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,6 +1637,7 @@ RectTransform:
   - {fileID: 1232313598}
   - {fileID: 24838661}
   - {fileID: 57332359}
+  - {fileID: 1683786928}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1704,6 +1739,7 @@ MonoBehaviour:
   rowTemplate: {fileID: 870371464}
   detailTitle: {fileID: 1095802600}
   detailBody: {fileID: 1434317470}
+  uiAudio: {fileID: 1683786929}
   itemsHeader: ITEMS
   notesHeader: NOTES
   unknownLabel: ???
@@ -2366,6 +2402,7 @@ GameObject:
   - component: {fileID: 266361969}
   - component: {fileID: 266361968}
   - component: {fileID: 266361967}
+  - component: {fileID: 266361975}
   m_Layer: 7
   m_Name: Barry
   m_TagString: Untagged
@@ -2618,6 +2655,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &266361975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266361965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 2
+  normalVoices: []
+  robberVoice: {fileID: 8300000, guid: 4c4a879c878ce2c43adb8f4ac9b76791, type: 3}
 --- !u!1 &276123528
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,6 +3312,7 @@ MonoBehaviour:
   ui: {fileID: 481473225}
   folder: Dialogue
   lineLockSeconds: 0.5
+  voiceCooldownSeconds: 0.3
   onStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -5001,9 +5054,22 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 0
   once: 1
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1547253119}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayAlarm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &478202438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5477,6 +5543,7 @@ GameObject:
   - component: {fileID: 532226716}
   - component: {fileID: 532226715}
   - component: {fileID: 532226714}
+  - component: {fileID: 532226721}
   m_Layer: 7
   m_Name: Jess
   m_TagString: Untagged
@@ -5716,6 +5783,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &532226721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532226712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 1
+  normalVoices:
+  - {fileID: 8300000, guid: f7aad6b3e7d5a9e47956e9cf4e8240af, type: 3}
+  - {fileID: 8300000, guid: a5fd73f2286e1ad4a84b0f2fb456838c, type: 3}
+  - {fileID: 8300000, guid: 7d38e9c765685e34aa23c0ab638b085e, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &541920868
 GameObject:
   m_ObjectHideFlags: 0
@@ -6021,6 +6106,7 @@ GameObject:
   - component: {fileID: 575859781}
   - component: {fileID: 575859790}
   - component: {fileID: 575859789}
+  - component: {fileID: 575859791}
   m_Layer: 7
   m_Name: Tarry
   m_TagString: Untagged
@@ -6394,6 +6480,21 @@ MonoBehaviour:
           m_StringArgument: Huh? Did you do something? Don't try anything funny.
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &575859791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575859779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 2
+  normalVoices: []
+  robberVoice: {fileID: 8300000, guid: 4c4a879c878ce2c43adb8f4ac9b76791, type: 3}
 --- !u!1 &578245594
 GameObject:
   m_ObjectHideFlags: 0
@@ -6713,6 +6814,7 @@ GameObject:
   - component: {fileID: 618081682}
   - component: {fileID: 618081681}
   - component: {fileID: 618081680}
+  - component: {fileID: 618081687}
   m_Layer: 7
   m_Name: Lara
   m_TagString: Untagged
@@ -6952,6 +7054,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &618081687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618081678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 1
+  normalVoices:
+  - {fileID: 8300000, guid: f7aad6b3e7d5a9e47956e9cf4e8240af, type: 3}
+  - {fileID: 8300000, guid: a5fd73f2286e1ad4a84b0f2fb456838c, type: 3}
+  - {fileID: 8300000, guid: 7d38e9c765685e34aa23c0ab638b085e, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &640416668
 GameObject:
   m_ObjectHideFlags: 0
@@ -7332,6 +7452,7 @@ GameObject:
   - component: {fileID: 668185884}
   - component: {fileID: 668185883}
   - component: {fileID: 668185882}
+  - component: {fileID: 668185889}
   m_Layer: 7
   m_Name: Alice
   m_TagString: Untagged
@@ -7571,6 +7692,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &668185889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668185880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 1
+  normalVoices:
+  - {fileID: 8300000, guid: f7aad6b3e7d5a9e47956e9cf4e8240af, type: 3}
+  - {fileID: 8300000, guid: a5fd73f2286e1ad4a84b0f2fb456838c, type: 3}
+  - {fileID: 8300000, guid: 7d38e9c765685e34aa23c0ab638b085e, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &691304661
 GameObject:
   m_ObjectHideFlags: 0
@@ -7904,6 +8043,7 @@ GameObject:
   - component: {fileID: 699184399}
   - component: {fileID: 699184398}
   - component: {fileID: 699184397}
+  - component: {fileID: 699184404}
   m_Layer: 7
   m_Name: Kevin
   m_TagString: Untagged
@@ -8143,6 +8283,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &699184404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699184395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 0
+  normalVoices:
+  - {fileID: 8300000, guid: 09c2b3d7e1160fa4c94fd1f3f27ce00d, type: 3}
+  - {fileID: 8300000, guid: 8ef92d90477b14c4f9667a97fce26f39, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &710109278
 GameObject:
   m_ObjectHideFlags: 0
@@ -8341,6 +8498,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -8741,6 +8899,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1683786929}
+        m_TargetAssemblyTypeName: UIAudio, Assembly-CSharp
+        m_MethodName: PlayButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &766433899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8798,6 +8968,7 @@ GameObject:
   - component: {fileID: 767453428}
   - component: {fileID: 767453437}
   - component: {fileID: 767453436}
+  - component: {fileID: 767453438}
   m_Layer: 7
   m_Name: Vander
   m_TagString: Untagged
@@ -9154,6 +9325,21 @@ MonoBehaviour:
           m_StringArgument: outside_meet
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &767453438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767453426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 2
+  normalVoices: []
+  robberVoice: {fileID: 8300000, guid: 4c4a879c878ce2c43adb8f4ac9b76791, type: 3}
 --- !u!1 &784032709
 GameObject:
   m_ObjectHideFlags: 0
@@ -9477,6 +9663,7 @@ GameObject:
   - component: {fileID: 808887345}
   - component: {fileID: 808887344}
   - component: {fileID: 808887343}
+  - component: {fileID: 808887351}
   m_Layer: 7
   m_Name: Bob
   m_TagString: Untagged
@@ -9512,7 +9699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8957f4fb7f9bb554798bb7a119332b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Guard
-  standDownLine: Dammit...
+  standDownLine: Damm it...
 --- !u!114 &808887344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9729,6 +9916,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &808887351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808887341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 0
+  normalVoices:
+  - {fileID: 8300000, guid: 09c2b3d7e1160fa4c94fd1f3f27ce00d, type: 3}
+  - {fileID: 8300000, guid: 8ef92d90477b14c4f9667a97fce26f39, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &821648077
 GameObject:
   m_ObjectHideFlags: 0
@@ -10059,6 +10263,7 @@ MonoBehaviour:
   interactDistance: 3
   interactPrompt: {fileID: 1232313597}
   rb: {fileID: 866710695}
+  footstepInterval: 0.45
 --- !u!4 &866710694
 Transform:
   m_ObjectHideFlags: 0
@@ -10589,6 +10794,8 @@ GameObject:
   - component: {fileID: 903110935}
   - component: {fileID: 903110934}
   - component: {fileID: 903110933}
+  - component: {fileID: 903110940}
+  - component: {fileID: 903110941}
   m_Layer: 7
   m_Name: Linda
   m_TagString: Untagged
@@ -10804,6 +11011,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &903110940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903110931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66606e7ccda828940a0652f272b48765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunshotEventAudio
+  collapseDelay: 0.1
+--- !u!114 &903110941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903110931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 1
+  normalVoices:
+  - {fileID: 8300000, guid: f7aad6b3e7d5a9e47956e9cf4e8240af, type: 3}
+  - {fileID: 8300000, guid: a5fd73f2286e1ad4a84b0f2fb456838c, type: 3}
+  - {fileID: 8300000, guid: 7d38e9c765685e34aa23c0ab638b085e, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &925776109
 GameObject:
   m_ObjectHideFlags: 0
@@ -10933,6 +11171,7 @@ GameObject:
   - component: {fileID: 932523666}
   - component: {fileID: 932523665}
   - component: {fileID: 932523664}
+  - component: {fileID: 932523672}
   m_Layer: 7
   m_Name: Tom
   m_TagString: Untagged
@@ -11163,6 +11402,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &932523672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932523662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 0
+  normalVoices:
+  - {fileID: 8300000, guid: 09c2b3d7e1160fa4c94fd1f3f27ce00d, type: 3}
+  - {fileID: 8300000, guid: 8ef92d90477b14c4f9667a97fce26f39, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &949840663
 GameObject:
   m_ObjectHideFlags: 0
@@ -11474,6 +11730,135 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995237812}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &995399228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 995399230}
+  - component: {fileID: 995399229}
+  m_Layer: 0
+  m_Name: SFXSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &995399229
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995399228}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &995399230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995399228}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1547253114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1001385653
 GameObject:
   m_ObjectHideFlags: 0
@@ -14830,6 +15215,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -15221,6 +15607,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -15714,6 +16101,7 @@ GameObject:
   - component: {fileID: 1328665906}
   - component: {fileID: 1328665905}
   - component: {fileID: 1328665904}
+  - component: {fileID: 1328665911}
   m_Layer: 7
   m_Name: Margaret
   m_TagString: Untagged
@@ -15953,6 +16341,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &1328665911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328665902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 1
+  normalVoices:
+  - {fileID: 8300000, guid: f7aad6b3e7d5a9e47956e9cf4e8240af, type: 3}
+  - {fileID: 8300000, guid: a5fd73f2286e1ad4a84b0f2fb456838c, type: 3}
+  - {fileID: 8300000, guid: 7d38e9c765685e34aa23c0ab638b085e, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &1333075798
 GameObject:
   m_ObjectHideFlags: 0
@@ -17245,6 +17651,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1683786929}
+        m_TargetAssemblyTypeName: UIAudio, Assembly-CSharp
+        m_MethodName: PlayButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1399936550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18000,6 +18418,7 @@ MonoBehaviour:
   promptRequiresClue: clue_key_under_carpet
   destroyOnUse: 0
   once: 1
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -18136,6 +18555,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 0
   once: 0
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -18489,6 +18909,7 @@ GameObject:
   - component: {fileID: 1532519946}
   - component: {fileID: 1532519945}
   - component: {fileID: 1532519944}
+  - component: {fileID: 1532519951}
   m_Layer: 7
   m_Name: Bernard
   m_TagString: Untagged
@@ -18728,6 +19149,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &1532519951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532519942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 0
+  normalVoices:
+  - {fileID: 8300000, guid: 09c2b3d7e1160fa4c94fd1f3f27ce00d, type: 3}
+  - {fileID: 8300000, guid: 8ef92d90477b14c4f9667a97fce26f39, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &1539604589
 GameObject:
   m_ObjectHideFlags: 0
@@ -18852,6 +19290,8 @@ GameObject:
   - component: {fileID: 1547253115}
   - component: {fileID: 1547253116}
   - component: {fileID: 1547253117}
+  - component: {fileID: 1547253119}
+  - component: {fileID: 1547253118}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -18871,7 +19311,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2028068955}
+  - {fileID: 995399230}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1547253115
@@ -18917,6 +19359,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemLog
   itemFileName: items.json
+--- !u!114 &1547253118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547253112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b3250ca62509d4686688debb5bfc96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!114 &1547253119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547253112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e335a42de1f0bcf4186ae2cea2e58a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  musicSource: {fileID: 2028068954}
+  sfxSource: {fileID: 995399229}
+  clips:
+  - id: door
+    clip: {fileID: 8300000, guid: e00ffc4e8679e354ea93ff3474e6518b, type: 3}
+  - id: door_close
+    clip: {fileID: 8300000, guid: 54129582afb881c4284688deb5575362, type: 3}
+  - id: interaction
+    clip: {fileID: 8300000, guid: 585967b5878e07445b186b9b7961a0cc, type: 3}
+  - id: alarm
+    clip: {fileID: 8300000, guid: b2d928c4b17a0054d850f051f1d30fe2, type: 3}
+  - id: footstep
+    clip: {fileID: 8300000, guid: 91ab405fa1d0ca244ad29f33866e2379, type: 3}
+  - id: gunshot
+    clip: {fileID: 8300000, guid: d4746229c5b32ce4bb8ad8b3568942a6, type: 3}
+  - id: scream
+    clip: {fileID: 8300000, guid: 3a94f62bb3449964f95e6ac40fce2976, type: 3}
+  - id: bgm_main
+    clip: {fileID: 8300000, guid: 7f9f0e2c14159984fa923c43cdc78293, type: 3}
+  - id: bgm_heist
+    clip: {fileID: 8300000, guid: ae5bd84c0223fbc4ea74893675249585, type: 3}
+  - id: ending_hero
+    clip: {fileID: 8300000, guid: 4b198404f48ae9242a7ea5469c240abe, type: 3}
+  - id: ending_failure
+    clip: {fileID: 8300000, guid: 1b47c35427317bf459fb3438314737ce, type: 3}
+  - id: ending_criminal
+    clip: {fileID: 8300000, guid: 957d3a9774108334bad4d4ada2085766, type: 3}
+  - id: ending_escape
+    clip: {fileID: 8300000, guid: f2849871c0e9e234e83d8abfb76196f3, type: 3}
+  - id: ending_true
+    clip: {fileID: 8300000, guid: 783802ac99c2aab4ca74d365b65a9cd7, type: 3}
+  - id: card_reader
+    clip: {fileID: 8300000, guid: c43cb8631efa1454d97e03bb77b46303, type: 3}
+  - id: sirens
+    clip: {fileID: 8300000, guid: 53ccb206af744f248b6dc7da3e0c4b51, type: 3}
+  startupMusicId: bgm_main
 --- !u!1 &1567531420
 GameObject:
   m_ObjectHideFlags: 0
@@ -19431,6 +19933,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1547253119}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayMusic
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: bgm_heist
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 767453433}
           m_TargetAssemblyTypeName: NPC, Assembly-CSharp
           m_MethodName: GoToPost
@@ -19760,21 +20274,33 @@ MonoBehaviour:
             m_StringArgument: Quiet.
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 903110940}
+          m_TargetAssemblyTypeName: GunshotEventAudio, Assembly-CSharp
+          m_MethodName: PlayScream
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Quiet.
+            m_BoolArgument: 0
+          m_CallState: 2
   - label: shot
     atSecond: 110
     action:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 903110937}
-          m_TargetAssemblyTypeName: NPC, Assembly-CSharp
-          m_MethodName: Collapse
+        - m_Target: {fileID: 903110940}
+          m_TargetAssemblyTypeName: GunshotEventAudio, Assembly-CSharp
+          m_MethodName: PlayGunshotAndCollapse
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: 
+            m_StringArgument: customer_shot
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 1547253115}
@@ -19847,6 +20373,23 @@ MonoBehaviour:
             m_StringArgument: clue_friend_inside
             m_BoolArgument: 0
           m_CallState: 2
+  - label: last minute
+    atSecond: 420
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1547253119}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayMusic
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: bgm_tension
+            m_BoolArgument: 0
+          m_CallState: 2
   onExpired:
     m_PersistentCalls:
       m_Calls:
@@ -19909,6 +20452,7 @@ GameObject:
   - component: {fileID: 1593815029}
   - component: {fileID: 1593815028}
   - component: {fileID: 1593815027}
+  - component: {fileID: 1593815034}
   m_Layer: 7
   m_Name: Mr Wilco
   m_TagString: Untagged
@@ -20158,6 +20702,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &1593815034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1593815025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 0
+  normalVoices:
+  - {fileID: 8300000, guid: 09c2b3d7e1160fa4c94fd1f3f27ce00d, type: 3}
+  - {fileID: 8300000, guid: 8ef92d90477b14c4f9667a97fce26f39, type: 3}
+  robberVoice: {fileID: 0}
 --- !u!1 &1622535020
 GameObject:
   m_ObjectHideFlags: 0
@@ -20244,6 +20805,18 @@ MonoBehaviour:
       - m_Target: {fileID: 176344213}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1683786929}
+        m_TargetAssemblyTypeName: UIAudio, Assembly-CSharp
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20746,6 +21319,152 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2053940515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1683786927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683786928}
+  - component: {fileID: 1683786930}
+  - component: {fileID: 1683786929}
+  m_Layer: 0
+  m_Name: UIAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1683786928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683786927}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -958.5492, y: -539.84644, z: -0.4660575}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 176344208}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1683786929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683786927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fd18a1ee83dac84d9fc33d4f04b42a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIAudio
+  audioSource: {fileID: 1683786930}
+  buttonClick: {fileID: 8300000, guid: 3789e8410d89b2e48a154081b08f98ee, type: 3}
+  respawn: {fileID: 8300000, guid: 9680c6390ab7600478ac99af4c962f8e, type: 3}
+  toggle: {fileID: 8300000, guid: 5c5afb80fb51e25409d8f760e570da96, type: 3}
+--- !u!82 &1683786930
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683786927}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1737906993
 GameObject:
   m_ObjectHideFlags: 0
@@ -20950,6 +21669,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -22302,6 +23022,135 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026864262}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2028068953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028068955}
+  - component: {fileID: 2028068954}
+  m_Layer: 0
+  m_Name: BGM Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2028068954
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028068953}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2028068955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028068953}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1547253114}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2047525086
 GameObject:
   m_ObjectHideFlags: 0
@@ -22490,6 +23339,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -22665,6 +23515,7 @@ GameObject:
   - component: {fileID: 2061224932}
   - component: {fileID: 2061224931}
   - component: {fileID: 2061224930}
+  - component: {fileID: 2061224938}
   m_Layer: 7
   m_Name: Larry
   m_TagString: Untagged
@@ -22929,6 +23780,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &2061224938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061224928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d080ab9f0a200479b004ba55a07741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCVoice
+  voiceType: 2
+  normalVoices: []
+  robberVoice: {fileID: 8300000, guid: 4c4a879c878ce2c43adb8f4ac9b76791, type: 3}
 --- !u!1 &2067952574
 GameObject:
   m_ObjectHideFlags: 0
