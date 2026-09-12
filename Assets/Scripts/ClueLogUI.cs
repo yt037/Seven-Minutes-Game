@@ -18,6 +18,8 @@ public class ClueLogUI : MonoBehaviour
     [SerializeField] private GameObject rowTemplate;
     [SerializeField] private TMP_Text detailTitle;
     [SerializeField] private TMP_Text detailBody;
+    [SerializeField] private UIAudio uiAudio;
+   
 
     [Header("Labels")]
     [SerializeField] private string itemsHeader = "ITEMS";
@@ -86,6 +88,9 @@ public class ClueLogUI : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        if (uiAudio != null)
+        uiAudio.PlayToggle();
+       
     }
 
     public void Close()
@@ -95,6 +100,9 @@ public class ClueLogUI : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        if (uiAudio != null)
+        uiAudio.PlayToggle();
+      
     }
 
     // for any Inspector event still pointing here.

@@ -34,6 +34,10 @@ public class Player : MonoBehaviour
     private bool frozen;
     private Vector2 moveInput;
     private Vector2 lookInput;
+    [Header("Footsteps")]
+    [SerializeField] private float footstepInterval = 0.55f;
+
+    private float footstepTimer;
 
     public bool Frozen => frozen;
 
@@ -86,6 +90,7 @@ public class Player : MonoBehaviour
         else HandleMouseLook();
 
         UpdateInteractPrompt();
+        UpdateFootsteps();
     }
 
     private void OnApplicationFocus(bool hasFocus)
@@ -186,4 +191,30 @@ public class Player : MonoBehaviour
         frozen = value;
         if (value) { moveInput = Vector2.zero; lookInput = Vector2.zero; }
     }
+    private void UpdateFootsteps()
+{
+    if (frozen || DialogueRunning || PauseMenu.IsPaused || ClueLogUI.IsOpen)
+    {
+        footstepTimer = 0f;
+        return;
+    }
+
+    bool isMoving = moveInput.sqrMagnitude > 0.01f;
+
+    if (!isMoving)
+    {
+        footstepTimer = 0f;
+        return;
+    }
+
+    footstepTimer -= Time.deltaTime;
+
+    if (footstepTimer <= 0f)
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.Play(GameIds.SfxFootstep);
+
+        footstepTimer = footstepInterval;
+    }
+}
 }

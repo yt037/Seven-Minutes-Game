@@ -16,15 +16,21 @@ public class AudioManager : MonoBehaviour
         public AudioClip clip;
     }
 
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioSource sfxSource;
-    [SerializeField] private Entry[] clips;
+   [SerializeField] private AudioSource musicSource;
+   [SerializeField] private AudioSource sfxSource;
+   [SerializeField] private Entry[] clips;
+   [SerializeField] private string startupMusicId = "";
 
     private void Awake()
     {
-        Instance = this;
-    }
+    Instance = this;
+    }  
 
+    private void Start()
+    {
+    if (!string.IsNullOrEmpty(startupMusicId))
+        PlayMusic(startupMusicId);
+    }
     private void OnDestroy()
     {
         if (Instance == this) Instance = null;
@@ -32,8 +38,21 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string id)
     {
-        AudioClip clip = Find(id);
-        if (clip != null && sfxSource != null) sfxSource.PlayOneShot(clip);
+    AudioClip clip = Find(id);
+    if (clip != null && sfxSource != null)
+        sfxSource.PlayOneShot(clip);
+    }
+    public void PlayAlarm()
+    {
+    Play(GameIds.SfxAlarm);
+    }
+    public void StopMusic()
+    {
+    if (musicSource == null)
+        return;
+
+    musicSource.Stop();
+        musicSource.clip = null;
     }
 
     public void PlayMusic(string id)
@@ -51,5 +70,12 @@ public class AudioManager : MonoBehaviour
         if (clips == null || string.IsNullOrEmpty(id)) return null;
         foreach (Entry e in clips) if (e != null && e.id == id) return e.clip;
         return null;
+    }
+    public void PlayClip(AudioClip clip)
+    {
+    if (clip == null || sfxSource == null)
+        return;
+
+    sfxSource.PlayOneShot(clip);
     }
 }

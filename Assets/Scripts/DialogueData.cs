@@ -30,6 +30,7 @@ public class DialogueNode
     public string[] setFlags;           // run flags set when this node shows
     public string[] setPersistentFlags; // flags kept until the game quits
     public string[] addClues;           // clue ids added to the clue log
+    public string sound;
 
     public DialogueChoice[] choices;    // if empty, E advances to next
     public string next;                 // node id, or empty to end

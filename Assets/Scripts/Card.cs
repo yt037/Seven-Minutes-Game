@@ -19,6 +19,7 @@ public class Card : MonoBehaviour, Interaction
     [SerializeField] private string promptRequiresClue = "";
     [SerializeField] private bool destroyOnUse = true;
     [SerializeField] private bool once = true;
+    [SerializeField] private string soundId = "";
     public UnityEvent onUsed;
 
     private bool used;
@@ -47,6 +48,8 @@ public class Card : MonoBehaviour, Interaction
         }
 
         used = true;
+        if (!string.IsNullOrEmpty(soundId) && AudioManager.Instance != null)
+        AudioManager.Instance.Play(soundId);
 
         GameManager gm = GameManager.Instance;
         if (gm != null)

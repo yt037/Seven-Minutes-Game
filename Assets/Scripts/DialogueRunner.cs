@@ -18,6 +18,10 @@ public class DialogueRunner : MonoBehaviour
 
     [Tooltip("Seconds a line must be on screen before E or a number key does anything.")]
     public float lineLockSeconds = 2f;
+    [Tooltip("Minimum time between NPC voice playback.")]
+    
+    public float voiceCooldownSeconds = 0.3f;
+    private float lastVoiceTime = -999f; 
 
     public UnityEvent onStarted;
     public UnityEvent onFinished;
@@ -213,12 +217,19 @@ public class DialogueRunner : MonoBehaviour
     {
         shownAt = Time.unscaledTime;
         ApplyFlags(n.setFlags, n.setPersistentFlags, n.addClues);
+        if (!string.IsNullOrEmpty(n.sound) &&
+            AudioManager.Instance != null)
+        {
+            AudioManager.Instance.Play(n.sound);
+        }
 
         if (ui != null)
         {
             ui.SetSpeaker(n.speaker);
             ui.ChangeDialogueText(PickText(n));
         }
+        
+        PlaySpeakerVoice();
 
         visible.Clear();
         if (n.choices != null)
@@ -330,5 +341,16 @@ public class DialogueRunner : MonoBehaviour
         if (ui != null) ui.CloseDialogue();
         Finished?.Invoke();
         onFinished?.Invoke();
+    }
+    private void PlaySpeakerVoice()
+    {
+    if (Speaker == null)
+        return;
+    if (Time.unscaledTime - lastVoiceTime < voiceCooldownSeconds)
+        return;
+    NPCVoice voice = Speaker.GetComponentInParent<NPCVoice>();
+
+    if (voice != null)
+        voice.PlayVoice();
     }
 }
