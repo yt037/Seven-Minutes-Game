@@ -4188,7 +4188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3af3363f6df2d73458267504a9e56c8c, type: 2}
+  - {fileID: 2100000, guid: 9fd94482fb96a4040b4593d6d750818d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4985,7 +4985,6 @@ GameObject:
   m_Component:
   - component: {fileID: 369712025}
   - component: {fileID: 369712027}
-  - component: {fileID: 369712026}
   m_Layer: 0
   m_Name: Barrier (1)
   m_TagString: Untagged
@@ -5008,18 +5007,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2111707669}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &369712026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369712024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc87c66b3f6d8ba428ac27e3c17f19e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LookAt
 --- !u!212 &369712027
 SpriteRenderer:
   serializedVersion: 3
@@ -6885,7 +6872,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 0
   once: 1
-  soundId: 
+  soundId: alarm
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -10403,7 +10390,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3af3363f6df2d73458267504a9e56c8c, type: 2}
+  - {fileID: 2100000, guid: 9fd94482fb96a4040b4593d6d750818d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12245,7 +12232,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
-  soundId: 
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -20807,7 +20794,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
-  soundId: 
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -21214,7 +21201,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
-  soundId: 
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -24541,7 +24528,7 @@ MonoBehaviour:
   promptRequiresClue: clue_key_under_carpet
   destroyOnUse: 0
   once: 1
-  soundId: 
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -24771,7 +24758,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 0
   once: 0
-  soundId: 
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -25837,7 +25824,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1564371555}
   - component: {fileID: 1564371557}
-  - component: {fileID: 1564371556}
   m_Layer: 0
   m_Name: Barrier
   m_TagString: Untagged
@@ -25860,18 +25846,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2111707669}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &1564371556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564371554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc87c66b3f6d8ba428ac27e3c17f19e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LookAt
 --- !u!212 &1564371557
 SpriteRenderer:
   serializedVersion: 3
@@ -26538,6 +26512,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1547253118}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayMusic
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: bgm_heist
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 767453433}
           m_TargetAssemblyTypeName: NPC, Assembly-CSharp
           m_MethodName: GoToPost
@@ -26867,6 +26853,18 @@ MonoBehaviour:
             m_StringArgument: Quiet.
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1547253118}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: Play
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: scream
+            m_BoolArgument: 0
+          m_CallState: 2
   - label: shot
     atSecond: 110
     action:
@@ -26952,6 +26950,23 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: clue_friend_inside
+            m_BoolArgument: 0
+          m_CallState: 2
+  - label: last minute
+    atSecond: 420
+    action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1547253118}
+          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+          m_MethodName: PlayMusic
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: bgm_tension
             m_BoolArgument: 0
           m_CallState: 2
   onExpired:
@@ -29402,7 +29417,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
-  soundId: 
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
@@ -32279,7 +32294,7 @@ MonoBehaviour:
   promptRequiresClue: 
   destroyOnUse: 1
   once: 1
-  soundId: 
+  soundId: interaction
   onUsed:
     m_PersistentCalls:
       m_Calls: []
