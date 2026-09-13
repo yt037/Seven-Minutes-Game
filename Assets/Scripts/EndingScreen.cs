@@ -20,9 +20,13 @@ public class EndingScreen : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button retryButton;
     [SerializeField] private Button mainMenuButton;
+    [SerializeField] private UIAudio uiAudio;
 
     private void Start()
     {
+        if (AudioManager.Instance != null)
+        AudioManager.Instance.StopMusic();
+        
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 1f;
@@ -37,6 +41,7 @@ public class EndingScreen : MonoBehaviour
             string cause = result != null && result.ending == ending ? result.cause : "";
             title = TitleFor(ending);
             description = BodyFor(ending, variant, cause);
+            PlayEndingAudio(ending);
 
             if (variant == GameIds.VariantSirens && AudioManager.Instance != null) AudioManager.Instance.Play(GameIds.SfxSirens);
         }
@@ -50,8 +55,29 @@ public class EndingScreen : MonoBehaviour
 
     public void OnRetryPressed()
     {
-        if (GameManager.Instance != null) GameManager.Instance.Restart();
-        else SceneManager.LoadScene(GameIds.SceneBank);
+        StartCoroutine(RetryWithSound());
+    }
+
+    private System.Collections.IEnumerator RetryWithSound()
+    {
+    if (uiAudio != null)
+    {
+        uiAudio.PlayRespawn();
+
+        if (uiAudio.respawn != null)
+            yield return new WaitForSecondsRealtime(uiAudio.respawn.length);
+        else
+            yield return new WaitForSecondsRealtime(0.2f);
+    }
+    else
+    {
+        yield return new WaitForSecondsRealtime(0.2f);
+    }
+
+    if (GameManager.Instance != null)
+        GameManager.Instance.Restart();
+    else
+        SceneManager.LoadScene(GameIds.SceneBank);
     }
 
     public void OnMainMenuPressed()
@@ -112,5 +138,34 @@ public class EndingScreen : MonoBehaviour
             default:
                 return "";
         }
+    }
+
+    private void PlayEndingAudio(string ending)
+    {
+    if (AudioManager.Instance == null)
+        return;
+
+    switch (ending)
+    {
+        case GameIds.EndingFailure:
+            AudioManager.Instance.Play(GameIds.SfxEndingFailure);
+            break;
+
+        case GameIds.EndingEscape:
+            AudioManager.Instance.Play(GameIds.SfxEndingEscape);
+            break;
+
+        case GameIds.EndingHero:
+            AudioManager.Instance.Play(GameIds.SfxEndingHero);
+            break;
+
+        case GameIds.EndingCriminal:
+            AudioManager.Instance.Play(GameIds.SfxEndingCriminal);
+            break;
+
+        case GameIds.EndingTrue:
+            AudioManager.Instance.Play(GameIds.SfxEndingTrue);
+            break;
+    }
     }
 }

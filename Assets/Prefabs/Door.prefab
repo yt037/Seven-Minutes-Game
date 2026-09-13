@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2929579472413635658}
   - component: {fileID: 7991258376158703190}
   - component: {fileID: 4923858091081285116}
-  - component: {fileID: 8762556443316994985}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -107,26 +106,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8762556443316994985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280626920410989784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d81ad6a0e1240046adda9c55c5acaef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Door
-  secLevel: 0
-  animator: {fileID: 8691139228379552127}
 --- !u!1 &7088829098166754701
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +236,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3af3363f6df2d73458267504a9e56c8c, type: 2}
+  - {fileID: 2100000, guid: 9fd94482fb96a4040b4593d6d750818d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -363,7 +348,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3af3363f6df2d73458267504a9e56c8c, type: 2}
+  - {fileID: 2100000, guid: 9fd94482fb96a4040b4593d6d750818d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

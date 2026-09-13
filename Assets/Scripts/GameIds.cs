@@ -113,5 +113,17 @@ public static class GameIds
     public const string SfxAlarm = "alarm";
     public const string SfxSirens = "sirens";
     public const string SfxDoor = "door";
+    public const string SfxDoorClose = "door_close";
+    public const string SfxInteraction = "interaction";
+    public const string SfxFootstep = "footstep";
     public const string SfxClue = "clue";
+    public const string SfxScream = "scream";
+    public const string BgmMain = "bgm_main";
+    public const string BgmHeist = "bgm_heist";
+    public const string SfxEndingFailure = "ending_failure";
+    public const string SfxEndingEscape = "ending_escape";
+    public const string SfxEndingHero = "ending_hero";
+    public const string SfxEndingCriminal = "ending_criminal";
+    public const string SfxEndingTrue = "ending_true";
+    public const string SfxCardReader = "card_reader";
 }
